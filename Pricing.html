@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pricing — Mobile Shop Pro</title>
+  <meta name="description" content="Choose from Starter, Professional, or Premium plans. Pay via NayaPay and get your license instantly."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon">📱</span>
+      <span>Mobile Shop<strong>Pro</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#features">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="activate.html">Activate</a></li>
+      <li><a href="pricing.html" class="btn-nav">Buy Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="section-tag">Simple Pricing</span>
+    <h1 style="margin-top:1rem">Choose Your Plan</h1>
+    <p style="font-size:1.1rem;margin-top:1rem">
+      Pay via NayaPay. License delivered to your email within minutes.<br/>
+      No subscriptions. One-time payment.
+    </p>
+  </div>
+</section>
+
+<!-- COUPON SECTION -->
+<div class="container" style="text-align:center;margin-bottom:-2rem;position:relative;z-index:10">
+  <div style="display:inline-flex;align-items:center;gap:0.8rem;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.5rem;">
+    <span style="font-size:0.9rem;color:var(--muted);font-weight:500;">🎟️ Got a coupon code?</span>
+    <input type="text" id="globalCoupon" placeholder="ENTER CODE" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.5rem 0.8rem;color:var(--text);font-size:0.85rem;outline:none;width:140px;text-transform:uppercase;font-family:'DM Sans',sans-serif;"/>
+    <button onclick="applyGlobalCoupon()" style="background:var(--violet);border:none;color:white;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-size:0.82rem;font-weight:600;">Apply</button>
+    <span id="globalCouponMsg" style="font-size:0.82rem;font-weight:500;min-width:100px;"></span>
+  </div>
+</div>
+
+<!-- PRICING CARDS -->
+<section style="background:var(--bg);padding:5rem 0 7rem;">
+  <div class="container">
+    <div class="pricing-grid" id="pricingGrid">
+
+      <!-- Starter -->
+      <div class="price-card reveal" id="card-starter">
+        <div class="price-plan">Starter</div>
+        <div class="price-duration">⏱️ 1 Month Access</div>
+        <div class="price-amount">
+          <span class="price-currency">Rs</span>
+          <span class="price-value" id="val-starter">1,500</span>
+        </div>
+        <div class="price-original" id="orig-starter">&nbsp;</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Full POS System</li>
+          <li><span class="check">✓</span> Inventory Management</li>
+          <li><span class="check">✓</span> Customer Database</li>
+          <li><span class="check">✓</span> Repair Tracking</li>
+          <li><span class="check">✓</span> Expense Tracking</li>
+          <li><span class="check">✓</span> Cloud Backup (Google Drive)</li>
+          <li><span class="check">✓</span> PDF Reports</li>
+          <li><span class="check">✓</span> 1 Month License</li>
+        </ul>
+        <button class="btn-ghost" onclick="openPaymentModal('starter')" style="width:100%;text-align:center;">Get Starter</button>
+      </div>
+
+      <!-- Professional (Featured) -->
+      <div class="price-card featured reveal" id="card-professional">
+        <div class="price-badge">⭐ Most Popular</div>
+        <div class="price-plan" style="margin-top:0.5rem">Professional</div>
+        <div class="price-duration">⏱️ 3 Months Access</div>
+        <div class="price-amount">
+          <span class="price-currency">Rs</span>
+          <span class="price-value" id="val-professional">3,500</span>
+        </div>
+        <div class="price-original" id="orig-professional">&nbsp;</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Everything in Starter</li>
+          <li><span class="check">✓</span> Multi-Employee Accounts</li>
+          <li><span class="check">✓</span> Role-Based Permissions</li>
+          <li><span class="check">✓</span> Advanced Reports</li>
+          <li><span class="check">✓</span> Order Management</li>
+          <li><span class="check">✓</span> Staff Management</li>
+          <li><span class="check">✓</span> Priority Support</li>
+          <li><span class="check">✓</span> 3 Months License</li>
+        </ul>
+        <button class="btn-primary" onclick="openPaymentModal('professional')" style="width:100%;text-align:center;">Get Professional</button>
+      </div>
+
+      <!-- Premium -->
+      <div class="price-card reveal" id="card-premium">
+        <div class="price-plan">Premium</div>
+        <div class="price-duration">⏱️ 1 Year Access</div>
+        <div class="price-amount">
+          <span class="price-currency">Rs</span>
+          <span class="price-value" id="val-premium">7,000</span>
+        </div>
+        <div class="price-original" id="orig-premium">&nbsp;</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> Everything in Professional</li>
+          <li><span class="check">✓</span> Unlimited Employees</li>
+          <li><span class="check">✓</span> Full Year Access</li>
+          <li><span class="check">✓</span> First Priority Support</li>
+          <li><span class="check">✓</span> All Future Updates</li>
+          <li><span class="check">✓</span> Dedicated Setup Help</li>
+          <li><span class="check">✓</span> Business Analytics</li>
+          <li><span class="check">✓</span> 12 Months License</li>
+        </ul>
+        <button class="btn-amber" onclick="openPaymentModal('premium')" style="width:100%;text-align:center;">Get Premium</button>
+      </div>
+
+    </div>
+
+    <!-- FAQ / Comparison -->
+    <div style="max-width:700px;margin:0 auto;">
+      <h2 style="text-align:center;margin-bottom:2rem;">Frequently Asked Questions</h2>
+      <div class="faq-list" id="faqList">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            How do I get my license after payment?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">After you submit your transaction details, our system verifies your NayaPay payment automatically. Your license key is delivered to your email within a few minutes. No manual process needed.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What payment methods are accepted?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">We currently accept NayaPay only. Send the payment to our NayaPay number shown in the payment modal. Then submit your transaction ID and we verify it automatically.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Can I use the software on multiple computers?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">Each license is for one shop installation. If you need multiple computers in one shop, the employee account system allows multiple users on the same installation. Contact support for multi-shop needs.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            What happens if my license expires?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">When your license expires, the app will prompt you to renew. Your data is never deleted. Simply purchase a new plan to continue using all features without any data loss.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            Is my shop data safe?
+            <span class="faq-arrow">▼</span>
+          </button>
+          <div class="faq-a">Your data is stored locally on your computer and automatically backed up to your Google Drive every 30 minutes. Even if your computer crashes, you can restore everything instantly.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT MODAL -->
+<div class="modal-overlay" id="paymentModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('paymentModal')">✕</button>
+    <h3>Complete Your Purchase</h3>
+    <div id="modalPlanTag" class="plan-tag"></div>
+
+    <div class="payment-info">
+      <p>Total Amount to Pay:</p>
+      <strong id="modalAmountLabel"></strong>
+      <span class="amount-big" id="modalAmountBig"></span>
+    </div>
+
+    <div class="nayapay-box">
+      <p>📲 Send via NayaPay to:</p>
+      <strong>03XX-XXXXXXX</strong>
+      <p style="margin-top:0.4rem;font-size:0.82rem;color:var(--muted);">After sending, fill the form below with your transaction details.</p>
+    </div>
+
+    <form id="paymentForm" onsubmit="submitPayment(event)">
+      <div class="form-group">
+        <label>Your Full Name (as in NayaPay)</label>
+        <input type="text" id="payName" placeholder="Muhammad Ahmed" required/>
+      </div>
+      <div class="form-group">
+        <label>Your Email Address</label>
+        <input type="email" id="payEmail" placeholder="you@email.com" required/>
+        <div class="form-note">License key will be sent here</div>
+      </div>
+      <div class="form-group">
+        <label>NayaPay Transaction ID</label>
+        <input type="text" id="payTxn" placeholder="e.g. NP-2025-XXXXXXXX" required/>
+        <div class="form-note">Copy from your NayaPay receipt/SMS</div>
+      </div>
+      <div class="form-group">
+        <label>Coupon Code (optional)</label>
+        <input type="text" id="payCoupon" placeholder="Leave blank if none" style="text-transform:uppercase"/>
+      </div>
+      <div id="payMsg" class="msg-box"></div>
+      <button type="submit" class="btn-primary" id="payBtn" style="width:100%;margin-top:1rem;justify-content:center;display:flex;align-items:center;gap:0.5rem;">
+        Verify Payment & Get License
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner" style="width:40px;height:40px;border-width:3px;"></div>
+  <p>Verifying your payment...</p>
+</div>
+
+<style>
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 1.2rem 0;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: color 0.2s;
+}
+.faq-q:hover { color: var(--violet2); }
+.faq-arrow { font-size: 0.75rem; transition: transform 0.3s; flex-shrink: 0; color: var(--violet2); }
+.faq-q.open .faq-arrow { transform: rotate(180deg); }
+.faq-a {
+  font-size: 0.92rem;
+  color: var(--muted);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s;
+}
+.faq-a.open { max-height: 200px; padding-bottom: 1.2rem; }
+</style>
+
+<script src="../js/main.js"></script>
+<script>
+// ── PLAN DATA ──
+const PLANS = {
+  starter:      { name: 'Starter',      basePrice: 1500, duration: '1 Month',  discount: 15 },
+  professional: { name: 'Professional', basePrice: 3500, duration: '3 Months', discount: 20 },
+  premium:      { name: 'Premium',      basePrice: 7000, duration: '1 Year',   discount: 25 }
+};
+
+let activePlan    = 'professional';
+let appliedCoupon = '';
+let finalPrices   = { starter: 1500, professional: 3500, premium: 7000 };
+
+// ── COUPON LOGIC ──
+async function applyGlobalCoupon() {
+  const code = document.getElementById('globalCoupon').value.trim().toUpperCase();
+  const msgEl = document.getElementById('globalCouponMsg');
+
+  if (!code) {
+    msgEl.textContent = 'Enter a code first';
+    msgEl.style.color = '#f87171';
+    return;
+  }
+
+  msgEl.textContent = 'Checking...';
+  msgEl.style.color = 'var(--muted)';
+
+  const res = await gasGet({ action: 'validateCoupon', coupon: code, plan: 'starter' });
+
+  if (res.status === 'success' || res.discount) {
+    appliedCoupon = code;
+    msgEl.textContent = `✅ ${res.discount || 0}% off applied!`;
+    msgEl.style.color = 'var(--green)';
+
+    // Update all prices
+    for (const [plan, data] of Object.entries(PLANS)) {
+      const disc = res.discount || data.discount;
+      const newPrice = Math.round(data.basePrice * (1 - disc / 100));
+      finalPrices[plan] = newPrice;
+      document.getElementById('val-' + plan).textContent = newPrice.toLocaleString('en-PK');
+      document.getElementById('orig-' + plan).textContent = 'Was Rs ' + data.basePrice.toLocaleString('en-PK');
+    }
+    document.getElementById('payCoupon').value = code;
+  } else {
+    appliedCoupon = '';
+    msgEl.textContent = res.message || 'Invalid coupon';
+    msgEl.style.color = '#f87171';
+    // Reset prices
+    for (const [plan, data] of Object.entries(PLANS)) {
+      finalPrices[plan] = data.basePrice;
+      document.getElementById('val-' + plan).textContent = data.basePrice.toLocaleString('en-PK');
+      document.getElementById('orig-' + plan).textContent = '';
+    }
+  }
+}
+
+// ── OPEN PAYMENT MODAL ──
+function openPaymentModal(plan) {
+  activePlan = plan;
+  const data = PLANS[plan];
+  const price = finalPrices[plan];
+
+  document.getElementById('modalPlanTag').textContent = data.name + ' — ' + data.duration;
+  document.getElementById('modalAmountLabel').textContent = data.name + ' Plan (' + data.duration + ')';
+  document.getElementById('modalAmountBig').textContent = 'Rs ' + price.toLocaleString('en-PK');
+
+  if (appliedCoupon) {
+    document.getElementById('payCoupon').value = appliedCoupon;
+  }
+
+  hideMsg(document.getElementById('payMsg'));
+  document.getElementById('paymentForm').reset();
+  if (appliedCoupon) document.getElementById('payCoupon').value = appliedCoupon;
+  openModal('paymentModal');
+}
+
+// ── SUBMIT PAYMENT ──
+async function submitPayment(e) {
+  e.preventDefault();
+  const btn   = document.getElementById('payBtn');
+  const msgEl = document.getElementById('payMsg');
+
+  const name   = document.getElementById('payName').value.trim();
+  const email  = document.getElementById('payEmail').value.trim();
+  const txn    = document.getElementById('payTxn').value.trim();
+  const coupon = document.getElementById('payCoupon').value.trim().toUpperCase();
+  const amount = finalPrices[activePlan];
+
+  if (!name || !email || !txn) {
+    showMsg(msgEl, '⚠️ Please fill all required fields.', 'error');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Verifying...';
+  showLoading(true);
+  hideMsg(msgEl);
+
+  const params = {
+    action: 'verify',
+    trx:    txn,
+    name:   name,
+    email:  email,
+    amount: amount,
+    plan:   activePlan
+  };
+  if (coupon) params.coupon = coupon;
+
+  const res = await gasGet(params);
+  showLoading(false);
+
+  if (res.status === 'success') {
+    showMsg(msgEl, '🎉 Payment verified! Your license key has been sent to ' + email + '. Check your inbox (and spam folder).', 'success');
+    btn.innerHTML = '✅ License Sent to Email!';
+    setTimeout(() => {
+      closeModal('paymentModal');
+      btn.disabled = false;
+      btn.innerHTML = 'Verify Payment & Get License';
+    }, 8000);
+  } else {
+    showMsg(msgEl, '❌ ' + (res.message || 'Verification failed. Please double-check your Transaction ID and name.'), 'error');
+    btn.disabled = false;
+    btn.innerHTML = 'Verify Payment & Get License';
+  }
+}
+
+// ── FAQ TOGGLE ──
+function toggleFaq(btn) {
+  const a = btn.nextElementSibling;
+  btn.classList.toggle('open');
+  a.classList.toggle('open');
+}
+
+// ── PRE-FILL COUPON FROM URL ──
+const urlParams = new URLSearchParams(window.location.search);
+const urlCoupon = urlParams.get('coupon');
+if (urlCoupon) {
+  document.getElementById('globalCoupon').value = urlCoupon.toUpperCase();
+  setTimeout(applyGlobalCoupon, 500);
+}
+</script>
+</body>
+</html>
