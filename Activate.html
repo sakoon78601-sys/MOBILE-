@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Activate License — Mobile Shop Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>"/>
+</head>
+<body>
+
+<nav class="nav scrolled" id="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="logo">
+      <span class="logo-icon">📱</span>
+      <span>Mobile Shop<strong>Pro</strong></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="../index.html#features">Features</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="partners.html">Partners</a></li>
+      <li><a href="activate.html">Activate</a></li>
+      <li><a href="pricing.html" class="btn-nav">Buy Now</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<section class="activate-section">
+  <div class="container">
+
+    <div style="text-align:center;margin-bottom:3rem;">
+      <span class="section-tag">License Management</span>
+      <h1 style="margin-top:1rem">Activate Your License</h1>
+      <p style="margin-top:0.75rem;font-size:1.05rem;">Enter your license key and email to activate Mobile Shop Pro on your computer.</p>
+    </div>
+
+    <div class="activate-grid">
+
+      <!-- FORM -->
+      <div class="activate-form">
+        <h3 style="margin-bottom:0.4rem">🔑 License Activation</h3>
+        <p style="font-size:0.9rem;margin-bottom:1.8rem;">Your license key was emailed after purchase. If you can't find it, check spam or contact support.</p>
+
+        <div class="form-group">
+          <label>License Key</label>
+          <input type="text" id="licKey" placeholder="VMP-STR-00001" style="text-transform:uppercase;letter-spacing:0.05em;font-family:monospace;font-size:1rem;"/>
+          <div class="form-note">Format: VMP-XXX-XXXXX</div>
+        </div>
+        <div class="form-group">
+          <label>Registered Email</label>
+          <input type="email" id="licEmail" placeholder="you@email.com"/>
+        </div>
+        <div class="form-group">
+          <label>Shop Name</label>
+          <input type="text" id="licShop" placeholder="My Mobile Shop"/>
+        </div>
+
+        <div id="activateMsg" class="msg-box"></div>
+
+        <button class="btn-primary" onclick="activateLicense()" id="activateBtn" style="width:100%;justify-content:center;display:flex;align-items:center;gap:0.5rem;margin-top:1rem;">
+          Activate License
+        </button>
+
+        <div style="text-align:center;margin-top:1.2rem;">
+          <a href="pricing.html" style="font-size:0.85rem;color:var(--muted);">Don't have a license? <span style="color:var(--violet2);">Buy one here →</span></a>
+        </div>
+      </div>
+
+      <!-- SIDE INFO -->
+      <div class="activate-info">
+
+        <div class="info-card">
+          <h4>📧 Can't find your license?</h4>
+          <p>Check your spam/junk folder. The email comes from our automated system. If still not found, contact support with your transaction ID.</p>
+          <a href="mailto:lovelykamkhani@gmail.com" style="color:var(--violet2);font-size:0.9rem;display:inline-block;margin-top:0.5rem;">Email Support →</a>
+        </div>
+
+        <div class="info-card">
+          <h4>💻 How to activate in the app</h4>
+          <ol style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem;">
+            <li style="font-size:0.88rem;color:var(--muted);">1. Download and open Mobile Shop Pro</li>
+            <li style="font-size:0.88rem;color:var(--muted);">2. On the activation screen, enter your key</li>
+            <li style="font-size:0.88rem;color:var(--muted);">3. Enter your email address</li>
+            <li style="font-size:0.88rem;color:var(--muted);">4. Click "Activate" — you're done!</li>
+          </ol>
+        </div>
+
+        <div class="info-card">
+          <h4>📥 Download Mobile Shop Pro</h4>
+          <p style="margin-bottom:1rem;">Download the latest version of the application.</p>
+          <a href="https://drive.google.com/drive/folders/1M1r1XLY40CoCEhLm34zaifb6Gk2VbY7R?usp=drive_link"
+             target="_blank"
+             class="btn-primary"
+             style="display:inline-block;padding:0.65rem 1.5rem;font-size:0.9rem;">
+            📥 Download App
+          </a>
+        </div>
+
+        <div class="info-card">
+          <h4>🔍 Check License Status</h4>
+          <p style="margin-bottom:1rem;">Already activated? Check how many days remaining on your license.</p>
+          <div class="form-group" style="margin-bottom:0.8rem;">
+            <input type="text" id="checkKey" placeholder="Your license key" style="text-transform:uppercase;font-family:monospace;"/>
+          </div>
+          <button class="btn-ghost" onclick="checkLicense()" style="width:100%;text-align:center;">Check Status</button>
+          <div id="checkMsg" class="msg-box" style="margin-top:0.8rem;"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom" style="border-top:none;padding-top:0;">
+      <p>© 2025 Mobile Shop Pro. All rights reserved.</p>
+      <p>Made with ❤️ for Pakistani Mobile Shop Owners</p>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+async function activateLicense() {
+  const key   = document.getElementById('licKey').value.trim().toUpperCase();
+  const email = document.getElementById('licEmail').value.trim();
+  const shop  = document.getElementById('licShop').value.trim();
+  const btn   = document.getElementById('activateBtn');
+  const msgEl = document.getElementById('activateMsg');
+
+  if (!key || !email) {
+    showMsg(msgEl, '⚠️ Please enter your license key and email.', 'error');
+    return;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Activating...';
+  hideMsg(msgEl);
+
+  const res = await gasGet({
+    action:    'activate',
+    license:   key,
+    email:     email,
+    shop_name: shop || 'Mobile Shop'
+  });
+
+  if (res.status === 'success') {
+    showMsg(msgEl, '🎉 ' + (res.message || 'License activated successfully! You can now use Mobile Shop Pro.'), 'success');
+  } else {
+    showMsg(msgEl, '❌ ' + (res.message || 'Activation failed. Please check your key and email.'), 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = 'Activate License';
+}
+
+async function checkLicense() {
+  const key   = document.getElementById('checkKey').value.trim().toUpperCase();
+  const msgEl = document.getElementById('checkMsg');
+
+  if (!key) {
+    showMsg(msgEl, 'Enter your license key.', 'error');
+    return;
+  }
+
+  showMsg(msgEl, 'Checking...', 'info');
+
+  const res = await gasGet({ action: 'check', license: key });
+
+  if (res.status === 'success' || res.active) {
+    const days = res.days_remaining || res.daysRemaining || '?';
+    const plan = res.plan || '';
+    showMsg(msgEl, `✅ License is active! ${plan ? plan + ' Plan · ' : ''}${days} days remaining.`, 'success');
+  } else {
+    showMsg(msgEl, '❌ ' + (res.message || 'License not found or expired.'), 'error');
+  }
+}
+
+// Pre-fill from URL
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('key'))   document.getElementById('licKey').value   = urlParams.get('key');
+if (urlParams.get('email')) document.getElementById('licEmail').value = urlParams.get('email');
+</script>
+</body>
+</html>
